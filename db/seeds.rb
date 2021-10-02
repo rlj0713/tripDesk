@@ -8,4 +8,4 @@
 
 Guide.create(first_name: 'Brad', last_name: 'Chadlley')
 Customer.create(first_name: 'Joe', last_name: 'Shmo')
-Reservation.create(guide_id: 1, customer_id: 1)
+Reservation.create(guide_id: 1, customer_id: 1, reservation_date: Date.new(2021,7,13) )
