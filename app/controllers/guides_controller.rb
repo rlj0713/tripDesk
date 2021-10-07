@@ -25,12 +25,12 @@ class GuidesController < ApplicationController
     end
 
     def update
-        @guide = guide.find_by_id(params[:id])
+        @guide = Guide.find_by_id(params[:id])
         @guide.update(guide_params)
     end
 
     def destroy
-        @guide = guide.find_by_id(params[:id])
+        @guide = Guide.find_by_id(params[:id])
         @guide.destroy
     end
 

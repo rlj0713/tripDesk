@@ -8,6 +8,32 @@ class CustomersController < ApplicationController
         customers = Customer.all
         render json: CustomerSerializer.new(customers)
     end
+
+    def new
+        @customer = Customer.new
+    end
+
+    def create
+        @customer = Customer.new(guide_params)
+        if @customer.valid?
+            @customer.save
+        end
+    end
+
+    def edit
+        @customer = Customer.find_by_id(params[:id])
+    end
+
+    def update
+        @customer = Customer.find_by_id(params[:id])
+        @customer.update(customer_params)
+    end
+
+    def destroy
+        @customer = Customer.find_by_id(params[:id])
+        @customer.destroy
+    end
+
     
     private
 

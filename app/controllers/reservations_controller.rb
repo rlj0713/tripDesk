@@ -25,12 +25,12 @@ class ReservationsController < ApplicationController
     end
 
     def update
-        @reservation = reservation.find_by_id(params[:id])
+        @reservation = Reservation.find_by_id(params[:id])
         @reservation.update(res_params)
     end
 
     def destroy
-        @reservation = reservation.find_by_id(params[:id])
+        @reservation = Reservation.find_by_id(params[:id])
         @reservation.destroy
     end
 
