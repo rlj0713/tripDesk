@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 2021_10_02_165934) do
   end
 
   create_table "reservations", force: :cascade do |t|
+    t.datetime "reservation_date"
     t.integer "guide_id"
     t.integer "customer_id"
-    t.datetime "reservation_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_reservations_on_customer_id"
