@@ -5,14 +5,14 @@ class ReservationsController < ApplicationController
     end
     
     def index
-        reservations = Reservation.all
+        reservations = Reservation.all.sort_by { |reservation| reservation.reservation_date }
         render json: reservations.to_json(except: [:created_at, :updated_at], include: [:guide, :customer])
     end
 
     def new
         @reservation = Reservation.new
     end
-
+    
     def create
         @reservation = Reservation.new(res_params)
         if @reservation.valid?
