@@ -31,7 +31,19 @@ class GuidesController < ApplicationController
 
     def destroy
         @guide = Guide.find_by_id(params[:id])
-        @guide.destroy
+        @reservations = Reservation.all
+        @permission = true
+        @reservations.each do |reservation|
+            if reservation.guide_id == @guide.id
+                @permission = false
+            end
+        end
+
+        if @permission == true
+            @guide.destroy
+        else
+            page.alert('This guide is assigned to a trip!')
+        end
     end
 
     private
