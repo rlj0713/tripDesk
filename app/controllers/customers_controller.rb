@@ -14,7 +14,7 @@ class CustomersController < ApplicationController
     end
 
     def create
-        @customer = Customer.new(guide_params)
+        @customer = Customer.new(customer_params)
         if @customer.valid?
             @customer.save
         end
