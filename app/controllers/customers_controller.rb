@@ -31,7 +31,19 @@ class CustomersController < ApplicationController
 
     def destroy
         @customer = Customer.find_by_id(params[:id])
-        @customer.destroy
+        @reservations = Reservation.all
+        @permission = true
+        @reservations.each do |reservation|
+            if reservation.guide_id == @customer.id
+                @permission = false
+            end
+        end
+
+        if @permission == true
+            @customer.destroy
+        else
+            page.alert('This customer is on the schedule!')
+        end
     end
 
     
