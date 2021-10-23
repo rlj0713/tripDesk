@@ -34,7 +34,7 @@ class CustomersController < ApplicationController
         @reservations = Reservation.all
         @permission = true
         @reservations.each do |reservation|
-            if reservation.guide_id == @customer.id
+            if reservation.customer_id == @customer.id
                 @permission = false
             end
         end
